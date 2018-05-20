@@ -1,0 +1,123 @@
+﻿@model PropertiesListViewModel
+
+
+<div id="properties" class="container">
+    <h2>Moji oglasi</h2>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Kategorija</th>
+                <th>Grad</th>
+                <th>Brisanje</th>
+            </tr>
+        </thead>
+        @foreach (var property in Model.Properties)
+        {
+            <tbody>
+                <tr>
+                    <td>@property.Category.CategoryName</td>
+                    <td>@property.City.CityName</td>
+                    <td>
+                        <button data-properties-id="@property.PropertyId" class="btn-link js-delete">Obriši</button>
+                        @*<button data-properties-id="@property.PropertyId" class="btn-link js-edit">Edit</button>*@
+                        @*<a asp-controller="api/Property" asp-action="GetProperty" asp-route-id="@property.PropertyId">Edit</a>*@
+                    </td>
+                </tr>
+            </tbody>
+        }
+    </table>
+</div>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#properties .js-delete").on("click", function () {
+                var button = $(this);
+                if (confirm("Da li ste sigurni da želite obrisati oglas?")) {
+                    $.ajax({
+                        url: "/api/property/" + button.attr("data-properties-id"),
+                        method: "DELETE",
+                        success: function () {
+                            //console.log("Success");
+                            button.parents("tr").remove();
+                        }
+                    })
+                }
+            });
+        });
+        $(document).ready(function () {
+            $("#properties .js-edit").on("click", function () {
+                var button = $(this);
+                if (confirm("Da li ste sigurni da želite izmeniti oglas?")) {
+                    $.ajax({
+                        url: "/api/Property/" + button.attr("data-properties-id"),
+                        method: "GET",
+                        success: function () {
+                            console.log("Success");
+                        }
+                    })
+                }
+            });
+        });
+    </script>
+}
+
+
+@*<table id="customers" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Customer</th>
+            <th>Membership Type</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+@section scripts
+    {
+    <script>
+        $(document).ready(function () {
+            var table = $("#properties").DataTable({
+                ajax: {
+                    url: "/api/property",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "FirstName",
+                        render: function (data, type, property) {
+                            return "<a href='/property/edit/" + property.PropertyId + "'>" + property.FirstName + "</a>";
+                        }
+                    },
+                    {
+                        data: "category.CategoryName"
+                    },
+                    {
+                        data: "id",
+                        render: function(data) {
+                            return "<button class='btn-link js-delete' data-customer-id=" + data + ">Delete</button>";
+                        }
+                    }
+                ]
+            });
+
+
+            $("#property").on("click", ".js-delete", function () {
+                var button = $(this);
+
+                bootbox.confirm("Are you sure you want to delete this customer?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/api/property/" + button.attr("data-property-id"),
+                            method: "DELETE",
+                            success: function () {
+                                table.row(button.parents("tr")).remove().draw();
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+}*@

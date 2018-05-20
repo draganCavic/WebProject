@@ -1,0 +1,12 @@
+C:\Users\DR. CAVIC\source\repos\NekretnineWeb\NekretnineWeb\obj\Debug\netcoreapp2.0\NekretnineWeb.csprojResolveAssemblyReference.cache
+C:\Users\DR. CAVIC\source\repos\NekretnineWeb\NekretnineWeb\obj\Debug\netcoreapp2.0\NekretnineWeb.csproj.CoreCompileInputs.cache
+C:\Users\DR. CAVIC\source\repos\NekretnineWeb\NekretnineWeb\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\DR. CAVIC\source\repos\NekretnineWeb\NekretnineWeb\obj\Debug\netcoreapp2.0\NekretnineWeb.AssemblyInfoInputs.cache
+C:\Users\DR. CAVIC\source\repos\NekretnineWeb\NekretnineWeb\obj\Debug\netcoreapp2.0\NekretnineWeb.AssemblyInfo.cs
+C:\Users\DR. CAVIC\source\repos\NekretnineWeb\NekretnineWeb\bin\Debug\netcoreapp2.0\NekretnineWeb.deps.json
+C:\Users\DR. CAVIC\source\repos\NekretnineWeb\NekretnineWeb\bin\Debug\netcoreapp2.0\NekretnineWeb.runtimeconfig.json
+C:\Users\DR. CAVIC\source\repos\NekretnineWeb\NekretnineWeb\bin\Debug\netcoreapp2.0\NekretnineWeb.runtimeconfig.dev.json
+C:\Users\DR. CAVIC\source\repos\NekretnineWeb\NekretnineWeb\bin\Debug\netcoreapp2.0\NekretnineWeb.dll
+C:\Users\DR. CAVIC\source\repos\NekretnineWeb\NekretnineWeb\bin\Debug\netcoreapp2.0\NekretnineWeb.pdb
+C:\Users\DR. CAVIC\source\repos\NekretnineWeb\NekretnineWeb\obj\Debug\netcoreapp2.0\NekretnineWeb.dll
+C:\Users\DR. CAVIC\source\repos\NekretnineWeb\NekretnineWeb\obj\Debug\netcoreapp2.0\NekretnineWeb.pdb

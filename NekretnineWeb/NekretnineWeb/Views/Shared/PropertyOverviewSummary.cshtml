@@ -1,0 +1,24 @@
+﻿@model DetailsViewModel
+@inject ApplicationDbContext context
+
+
+<div class="col-sm-4 col-lg-4 col-md-4">
+    <a asp-controller="Property" asp-action="Details" asp-route-id="@Model.Property.PropertyId">
+        <div class="thumbnail">
+            <div class="photo">
+                @if(Model.Property.ImageUrl == null){
+                    <img src="~/images/no-image.jpg" alt="" style="height:200px">
+                }
+                @if(Model.Property.ImageUrl != null){
+                <img src="@Model.Property.ImageUrl" alt="" style="height:200px">
+                }
+            </div>
+            <div class="caption">
+                <h4 class="pull-left">@context.Cities.FirstOrDefault(c => c.CityId == Model.Property.CityId).CityName</h4>
+                <h4 class="pull-right">@context.Categories.FirstOrDefault(c => c.CategoryId == Model.Property.CategoryId).CategoryName</h4><br /><br />
+                <h3 class="pull-left">@Model.Property.Area.ToString("") m2</h3>
+                <h3 class="pull-right">@Model.Property.Price.ToString("") €</h3><br />
+            </div>
+        </div>
+    </a>
+</div>

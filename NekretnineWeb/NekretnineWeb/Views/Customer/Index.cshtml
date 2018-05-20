@@ -1,0 +1,59 @@
+﻿@model CustomerListViewModel
+
+
+<div id="customers" class="container">
+    <table class="table table-hover">
+        <tr>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+        @foreach (var customer in Model.Customers)
+        {
+            if (customer.UserName != "Admin")
+            {
+            <tr>
+                <td>@customer.FirstName</td>
+                <td>@customer.LastName</td>
+                <td>
+                    @if (customer.Block == true)
+                    {
+                        <p>Blokiran</p>
+                    }
+                    else
+                    {
+                        <p>Aktivan</p>
+                    }
+                </td>
+                <td>
+                    @*<button asp-action="PutApplicationUser" asp-route-id="@customer.Id">Blokiraj</button>*@
+                    <button data-customers-id="@customer.Id" class="btn-link js-block">Blokiraj</button>
+                    @*<button asp-route-id="@customer.Id" onclick="location.href='@Url.Action("PutApplicationUser", "api/Customer")'">Blok</button>*@
+                </td>
+            </tr>
+            }
+        }
+    </table>
+</div>
+
+@section scripts
+        {
+        <script>
+            $(document).ready(function () {
+                $("#customers .js-block").on("click", function () {
+                    var button = $(this);
+                    if (confirm("Da li ste sigurni da želite blokirati korisnika?")) {
+                        $.ajax({
+                            url: "/api/customer/" + button.attr("data-customers-id"),
+                            method: "PUT",
+                            success: function () {
+                                console.log("Success");
+                                //button.parents("tr").remove();
+                            }
+                        })
+                    }
+                });
+            });
+        </script>
+    }

@@ -1,0 +1,66 @@
+﻿@model PropertyViewModel
+
+
+<h4>Oglas</h4>
+<hr />
+<div class="row">
+    <div class="col-lg-12">
+        <form asp-action="EditProperty">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="@Model.property.LongDescription" class="control-label"></label>
+                <input asp-for="@Model.property.LongDescription" class="form-control" />
+                <span asp-validation-for="@Model.property.LongDescription" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="@Model.property.Price" class="control-label"></label>
+                <input asp-for="@Model.property.Price" class="form-control" />
+                <span asp-validation-for="@Model.property.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.property.Area" class="control-label"></label>
+                <input asp-for="@Model.property.Area" class="form-control" />
+                <span asp-validation-for="@Model.property.Area" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.property.ImageUrl" class="control-label"></label>
+                <input asp-for="@Model.property.ImageUrl" class="form-control" />
+                <span asp-validation-for="@Model.property.ImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.property.Rooms" class="control-label"></label>
+                <input asp-for="@Model.property.Rooms" class="form-control" />
+                <span asp-validation-for="@Model.property.Rooms" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.property.Baths" class="control-label"></label>
+                <input asp-for="@Model.property.Baths" class="form-control" />
+                <span asp-validation-for="@Model.property.Baths" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="@Model.property.PhoneNumber" /> @Html.DisplayNameFor(model => model.property.PhoneNumber)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="@Model.property.Email" /> @Html.DisplayNameFor(model => model.property.Email)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                @for (int i = 0; i < 50; i++)
+                {<b>&nbsp</b>}
+                <input type="submit" value="Sačuvaj" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

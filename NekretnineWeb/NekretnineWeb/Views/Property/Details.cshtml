@@ -1,0 +1,119 @@
+﻿@model DetailsViewModel
+
+@{
+    ViewData["Title"] = "Detalji";
+}
+
+<h2>Detalji</h2>
+
+<div>
+    @if (Model.Property.ImageUrl == null)
+    {
+        <img src="~/images/no-image.jpg" alt="" style="height:300px">
+    }
+    <img src="@Model.Property.ImageUrl" alt="">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.CategoryName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Category.CategoryName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.City.CityName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.City.CityName)
+        </dd>
+        @*@if (Model.Property.ShortDescription != null)
+            {
+                <dt>
+                    @Html.DisplayNameFor(model => model.Property.ShortDescription)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Property.ShortDescription)
+                </dd>
+            }*@
+        @if (Model.Property.LongDescription != null)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.Property.LongDescription)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Property.LongDescription)
+            </dd>
+        }
+        <dt>
+            @Html.DisplayNameFor(model => model.Property.Price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Property.Price) €
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Property.Address)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Property.Address)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Property.Area)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Property.Area) metara kvadratnih
+        </dd>
+        @if (Model.Property.PhoneNumber)
+        {
+            <dt>
+                Mobilni Telefon
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Property.Tel)
+            </dd>
+        }
+        @if (Model.Property.Email)
+        {
+            <dt>
+                E-mail
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Property.Mail)
+            </dd>
+        }
+        @if (Model.Property.Rooms != 0)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.Property.Rooms)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Property.Rooms)
+            </dd>
+        }
+        @if (Model.Property.Baths != 0)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.Property.Baths)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Property.Baths)
+            </dd>
+        }
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Property.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Property.Date)
+        </dd>
+        @*<dt>
+                @Html.DisplayNameFor(model => model.Customer.FirstName + " " + model.Customer.LastName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Customer.FirstName + " " + model.Customer.LastName)
+            </dd>*@
+    </dl>
+</div>
+@*<div>
+        <a asp-action="Edit" asp-route-id="@Model.Property.PropertyId">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>*@

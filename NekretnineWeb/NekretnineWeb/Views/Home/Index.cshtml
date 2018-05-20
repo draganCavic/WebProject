@@ -1,0 +1,117 @@
+﻿@model PropertiesListViewModel
+
+<div>
+    <div class="car">@await Html.PartialAsync("Carousel")<br /><br /></div>
+    <br /><br />
+    <script>
+        (function () {
+            var cx = '018311895098315521087:glm6mafpoek';
+            var gcse = document.createElement('script');
+            gcse.type = 'text/javascript';
+            gcse.async = true;
+            gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gcse, s);
+        })();
+    </script>
+    <gcse:search></gcse:search>
+    <br /><br />
+    <iframe src="https://kursna-lista.com/gedzeti/gadget2black.php" frameborder="0" height="110" scrolling="no" width="210"></iframe>
+   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <form>
+        <br /><select id="combobox" name="search">
+
+            <option value="">Kategorija</option>
+
+            <option value="1">Kuća</option>
+
+            <option value="2">Stan</option>
+
+            <option value="3">Vikendica</option>
+
+            <option value="4">Pomoćni objekat</option>
+
+            <option value="5">Poslovni objekat</option>
+
+            <option value="6">Sportski objekat</option>
+
+            <option value="7">Građevinsko zemljište</option>
+
+            <option value="8">Poljoprivredno zemljište</option>
+
+        </select>
+        <select id="combobox" name="searchC">
+
+            <option value="">Grad</option>
+
+            <option value="1">Užice</option>
+
+            <option value="2">Valjevo</option>
+
+            <option value="3">Šabac</option>
+
+            <option value="4">Požarevac</option>
+
+            <option value="5">Sombor</option>
+
+            <option value="6">Sremska Mitrovica</option>
+
+            <option value="7">Zaječar</option>
+
+            <option value="8">Kikinda</option>
+
+            <option value="9">Vranje</option>
+
+            <option value="10">Vršac</option>
+
+            <option value="11">Pirot</option>
+
+            <option value="12">Smederevo</option>
+
+            <option value="13">Čačak</option>
+
+            <option value="14">Novi Pazar</option>
+
+            <option value="15">Kraljevo</option>
+
+            <option value="16">Loznica</option>
+
+            <option value="17">Zrenjanin</option>
+
+            <option value="18">Priština</option>
+
+            <option value="19">Subotica</option>
+
+            <option value="20">Kruševac</option>
+
+            <option value="21">Kragujevac</option>
+
+            <option value="22">Jagodina</option>
+
+            <option value="23">Niš</option>
+
+            <option value="24">Beograd</option>
+
+            <option value="25">Novi Sad</option>
+
+            <option value="26">Leskovac</option>
+
+            <option value="27">Pančevo</option>
+
+        </select><br />
+        <input type="submit" value="Pretraga" />
+    </form>
+
+    <div class="row">
+
+        @foreach (var property in Model.Properties)
+        {
+            if (Model.min < property.Price && property.Price < Model.max)
+            {
+                @Html.Partial("PropertyOverviewSummary", new DetailsViewModel { Property = property, City = property.City, Category = property.Category })
+            }
+            @Html.Partial("PropertyOverviewSummary", new DetailsViewModel { Property = property, City = property.City, Category = property.Category })
+        }
+
+    </div>
+</div>
